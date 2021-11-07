@@ -1,0 +1,81 @@
+//Mi3Act1 - Primitive Patterns
+//Jumamil, Xena Princess Moriell
+//T62 Computer Graphics Programming
+
+
+#include <GL/glut.h> // OpenGL Utility ToolKit Library
+
+void display(); // Declare A Function 
+void reshape(int, int);
+
+void init()
+{
+    glClearColor(1.0, 1.0,1.0,1.0); // White
+}
+
+//Process Screen
+int main(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_RGB);
+
+    glutInitWindowPosition(400, 400); // Program Screen Position
+    glutInitWindowSize(800, 500); // Program Window Size
+    glutCreateWindow("T62 Mi3Act1 - Primitive Patterns"); // Window Title
+
+    glutDisplayFunc(display); // Call Display Function
+    glutReshapeFunc(reshape);
+
+    init();
+    glutMainLoop(); // Loop All Functions
+}
+
+
+//Process Triangles
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT); // Buffer Currently Enabled
+    glLoadIdentity(); // Reset All Matrix
+
+    // Whole Triangle
+    glColor3f(0.439216, 0.858824, 0.858824); // Medium Turquoise 
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0, 9);
+    glVertex2f(-8, -9);
+    glVertex2f(8, -9);
+
+    //Triangle 1
+    glColor3f(0.196078, 0.6, 0.8); // Sky Blue 
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0, -3);
+    glVertex2f(2.8, 2.5);
+    glVertex2f(-2.8, 2.5);
+
+    //Triangle 2
+    glColor3f(0.196078, 0.6, 0.8); // Sky Blue 
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0, -3);
+    glVertex2f(-5.3, -3);
+    glVertex2f(-2.8, -9);
+
+    //Triangle 3
+    glColor3f(0.196078, 0.6, 0.8); // Sky Blue 
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0, -3);
+    glVertex2f(5.3, -3);
+    glVertex2f(2.8, -9);
+
+    glEnd(); // Creation Ended
+    glFlush(); // Force Execution
+}
+
+
+//Process Height and Width
+void reshape(int w, int h)
+{
+    glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity(); // Reset Matrix
+    gluOrtho2D(-10, 10, -10, 10); // World Size
+    glMatrixMode(GL_MODELVIEW);
+}
