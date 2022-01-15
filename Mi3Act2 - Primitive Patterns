@@ -1,0 +1,166 @@
+//Mi3Act2 - Primitive Patterns
+//Jumamil, Xena Princess Moriell
+//T62 Computer Graphics Programming
+
+
+#include <GL/glut.h> // OpenGL Utility ToolKit Library
+
+void display(); // Declare A Function
+void reshape(int, int);
+
+
+int main(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_RGB); // Sets Display To RGB
+
+    glutInitWindowPosition(300, 0); // Program Screen Position
+    glutInitWindowSize(600, 600); // Program Window Size
+    glutCreateWindow("Mi3Act2 - Primitive Patterns"); // Window Title
+
+    glutDisplayFunc(display); // Call Display Function
+    glutReshapeFunc(reshape);
+
+    glClearColor(0.0, 0.0, 0.0, 1.0); // Black
+    glutMainLoop();// Loop All Functions
+}
+
+
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT);// Buffer Currently Enabled
+    glLoadIdentity();// Reset All Matrix
+
+    // SQUARE - BASE
+
+    glBegin(GL_LINES);
+    glVertex2f(7.5, 7.5);
+    glVertex2f(-5, 7.5);
+
+    glBegin(GL_LINES);
+    glVertex2f(-5, 7.5);
+    glVertex2f(-5, -5);
+
+    glBegin(GL_LINES);
+    glVertex2f(-5, -5);
+    glVertex2f(7.5, -5);
+
+    glBegin(GL_LINES);
+    glVertex2f(7.5, -5);
+    glVertex2f(7.5, 7.5);
+
+    glEnd();
+    glFlush();
+
+
+
+    // SQUARE - 1
+    glColor3f(0.55, 0.09, 0.0); // Maroon
+    glBegin(GL_QUADS);
+    glVertex2f(0, 7.5);
+    glVertex2f(-2.5, 7.5);
+    glVertex2f(-2.5, 5);
+    glVertex2f(0, 5);
+
+    // SQUARE - 2
+    glColor3f(0.55, 0.09, 0.0); // Maroon
+    glBegin(GL_QUADS);
+    glVertex2f(5, 7.5);
+    glVertex2f(2.5, 7.5);
+    glVertex2f(2.5, 5);
+    glVertex2f(5, 5);
+
+    // SQUARE - 3
+    glColor3f(0.55, 0.09, 0.0); // Maroon
+    glBegin(GL_QUADS);
+    glVertex2f(-2.5, 5);
+    glVertex2f(-5, 5);
+    glVertex2f(-5, 2.5);
+    glVertex2f(-2.5, 2.5);
+
+    // SQUARE - 4
+    glColor3f(0.55, 0.09, 0.0); // Maroon
+    glBegin(GL_QUADS);
+    glVertex2f(2.5, 5);
+    glVertex2f(0, 5);
+    glVertex2f(0, 2.5);
+    glVertex2f(2.5, 2.5);
+
+    // SQUARE - 5
+    glColor3f(0.55, 0.09, 0.0); // Maroon
+    glBegin(GL_QUADS);
+    glVertex2f(7.5, 5);
+    glVertex2f(5, 5);
+    glVertex2f(5, 2.5);
+    glVertex2f(7.5, 2.5);
+
+    // SQUARE - 6
+    glColor3f(0.55, 0.09, 0.0); // Maroon
+    glBegin(GL_QUADS);
+    glVertex2f(0, 2.5);
+    glVertex2f(-2.5, 2.5);
+    glVertex2f(-2.5, 0);
+    glVertex2f(0, 0);
+
+    // SQUARE - 7
+    glColor3f(0.55, 0.09, 0.0); // Maroon
+    glBegin(GL_QUADS);
+    glVertex2f(5, 2.5);
+    glVertex2f(2.5, 2.5);
+    glVertex2f(2.5, 0);
+    glVertex2f(5, 0);
+
+    // SQUARE - 8
+    glColor3f(1.0, 1.0, 1.0); // White
+    glBegin(GL_QUADS);
+    glVertex2f(-2.5, 0);
+    glVertex2f(-5, 0);
+    glVertex2f(-5, -2.5);
+    glVertex2f(-2.5, -2.5);
+
+    // SQUARE - 9
+    glColor3f(0.55, 0.09, 0.0); // Maroon
+    glBegin(GL_QUADS);
+    glVertex2f(2.5, 0);
+    glVertex2f(0, 0);
+    glVertex2f(0, -2.5);
+    glVertex2f(2.5, -2.5);
+
+    // SQUARE - 10
+    glColor3f(1.0, 1.0, 1.0); // White
+    glBegin(GL_QUADS);
+    glVertex2f(7.5, 0);
+    glVertex2f(5, 0);
+    glVertex2f(5, -2.5);
+    glVertex2f(7.5, -2.5);
+
+    // SQUARE - 11
+    glColor3f(1.0, 1.0, 1.0); // White
+    glBegin(GL_QUADS);
+    glVertex2f(0, -2.5);
+    glVertex2f(-2.5, -2.5);
+    glVertex2f(-2.5, -5);
+    glVertex2f(0, -5);
+
+    // SQUARE - 12
+    glColor3f(1.0, 1.0, 1.0); // White
+    glBegin(GL_QUADS);
+    glVertex2f(5, -2.5);
+    glVertex2f(2.5, -2.5);
+    glVertex2f(2.5, -5);
+    glVertex2f(5, -5);
+
+    glEnd(); // Creation Ended
+    glFlush(); // Force Execution
+
+}
+
+//Process Height and Width
+void reshape(int w, int h)
+{
+    glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(-10, 10, -10, 10);
+    glMatrixMode(GL_MODELVIEW);
+}
